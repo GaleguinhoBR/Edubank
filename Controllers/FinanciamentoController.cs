@@ -42,5 +42,15 @@ namespace apiEdubank.Controllers
 
             return new CreatedAtRouteResult("GetFinanciamento", new{id = financiamento.Id_financiamento,}, financiamento);
         }
+        [HttpPut ("{id:int}")]
+        public ActionResult Put(int id, Financiamento financiamento){
+            if(id != financiamento.Id_financiamento)
+                return BadRequest();
+
+            _context.Entry(financiamento).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.SaveChanges();
+
+            return Ok(financiamento);
+        }
     }
 }
