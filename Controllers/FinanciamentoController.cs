@@ -54,7 +54,7 @@ namespace apiEdubank.Controllers
         }
         [HttpDelete("{id:int}")]
         public ActionResult Delete(int id){
-            var financiamento = _context.Financiamentos.FirstOrDefault(p => p.Id == id);
+            var financiamento = _context.Financiamentos.FirstOrDefault(p => p.Id_financiamento == id);
             if (financiamento is null)
                 return NotFound();
             
