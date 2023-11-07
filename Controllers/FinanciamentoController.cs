@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using apiEdubank.Model;
 using Microsoft.AspNetCore.Mvc;
+using apiEdubank.Context;
 
 namespace apiEdubank.Controllers
 {
@@ -11,33 +12,20 @@ namespace apiEdubank.Controllers
     [Route("[controller]")]
     public class FinanciamentoController : ControllerBase
     {
-        private readonly ILogger<FinanciamentoController>_logger;
-        public FinanciamentoController(ILogger<FinanciamentoController> logger)
+        private readonly ILogger<FinanciamentoController> _logger;
+        private readonly apiEdubankContext _context;
+        public FinanciamentoController(ILogger<FinanciamentoController> logger, apiEdubankContext context)
         {
             _logger = logger;
+            _context = context;
         }
         [HttpGet(Name = "Financiamentos")]
-        public List<Financiamento> getFinanciamento(){
-            List<Financiamento> Financiamentos = new List<Financiamento>();
+         public ActionResult<IEnumerable<Financiamento>> Get(){
+            var financiamentos = _context.Financiamentos.ToList();
+            if (financiamentos is null)
+                return NotFound();
 
-            Financiamento a1 = new Financiamento();
-            a1.Valor = 100000.00;
-            a1.Data = "31-05-2024";
-            a1.Descrição = "heheheheheheheh";
-            a1.Id_financiamento = 4761453;
-            a1.Id_usuario = 2020103401;
-
-            Financiamento a2 = new Financiamento();
-            a2.Valor = 125000.00;
-            a2.Data = "24-11-2024";
-            a2.Descrição = "hahahahahahahah";
-            a2.Id_financiamento = 0110101;
-            a2.Id_usuario = 2020103402;
-
-            Financiamentos.Add(a1);
-            Financiamentos.Add(a2);
-
-            return Financiamentos;
+            return financiamentos;
         }
     }
 }

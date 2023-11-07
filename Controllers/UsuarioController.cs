@@ -28,7 +28,7 @@ namespace apiEdubank.Controllers
             a1.Nome= "Jojo";
             a1.DataDeNascimento= "28/12/2004";
             a1.CPF= "xxx.xxx.xxx-xx";
-            a1.Email= "jogo@gmail.com";
+            a1.Email= "jojo@gmail.com";
 
             Usuario a2 = new Usuario();
             a2.Id_usuario= 2020103402;
