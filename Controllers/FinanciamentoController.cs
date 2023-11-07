@@ -52,5 +52,16 @@ namespace apiEdubank.Controllers
 
             return Ok(financiamento);
         }
+        [HttpDelete("{id:int}")]
+        public ActionResult Delete(int id){
+            var financiamento = _context.Financiamentos.FirstOrDefault(p => p.Id == id);
+            if (financiamento is null)
+                return NotFound();
+            
+            _context.Financiamentos.Remove(financiamento);
+            _context.SaveChanges();
+
+            return Ok(financiamento);
+        }
     }
 }
