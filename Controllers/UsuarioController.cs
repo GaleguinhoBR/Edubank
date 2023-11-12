@@ -57,5 +57,17 @@ namespace apiEdubank.Controllers
 
             return Ok(usuario);
         }
+        [HttpDelete("{id:int}")]
+        public ActionResult Delete(int id){
+            var usuario = _context.Usuarios.FirstOrDefault(p => p.Id_usuario == id);
+
+            if(usuario is null)
+                return NotFound();
+            
+            _context.Usuarios.Remove(usuario);
+            _context.SaveChanges();
+
+            return Ok(usuario);
+        }
     }
 }
