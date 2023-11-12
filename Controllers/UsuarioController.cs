@@ -47,5 +47,15 @@ namespace apiEdubank.Controllers
 
             return new CreatedAtRouteResult("GetUsuario", new{id = usuario.Id_usuario}, usuario);
         }
+        [HttpPut("{id:int}")]
+        public ActionResult Put(int id, Usuario usuario){
+            if(id != usuario.Id_usuario)
+                return BadRequest();
+            
+            _context.Entry(usuario).State = EntityState.Modified;
+            _context.SaveChanges();
+
+            return Ok(usuario);
+        }
     }
 }
