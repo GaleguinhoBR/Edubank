@@ -39,6 +39,13 @@ namespace apiEdubank.Controllers
                 return NotFound("Curso não encontrado.");
             
             return usuario;
-        } 
+        }
+        [HttpPost]
+        public ActionResult  Post(Usuario usuario){
+            _context.Usuarios.Add(usuario);
+            _context.SaveChanges();
+
+            return new CreatedAtRouteResult("GetUsuario", new{id = usuario.Id_usuario}, usuario);
+        }
     }
 }
