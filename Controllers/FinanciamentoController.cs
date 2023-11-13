@@ -2,9 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using apiEdubank.Context;
 using apiEdubank.Model;
 using Microsoft.AspNetCore.Mvc;
-using apiEdubank.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace apiEdubank.Controllers
 {

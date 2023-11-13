@@ -23,7 +23,7 @@ namespace apiEdubank.Controllers
             _context = context;
         }
         
-        [HttpGet]
+        [HttpGet(Name = "Usuários")]
         public ActionResult<IEnumerable<Usuario>> Get(){
             var usuarios = _context.Usuarios.ToList();
             if(usuarios is null)
