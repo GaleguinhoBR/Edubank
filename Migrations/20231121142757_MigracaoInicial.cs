@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
@@ -19,7 +20,7 @@ namespace financiamentoEstudantil.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Id_usuario = table.Column<int>(type: "integer", nullable: false),
                     Valor = table.Column<double>(type: "double precision", nullable: false),
-                    Data = table.Column<string>(type: "text", nullable: true),
+                    Data = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Descrição = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
@@ -34,7 +35,7 @@ namespace financiamentoEstudantil.Migrations
                     Id_usuario = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Nome = table.Column<string>(type: "text", nullable: true),
-                    DataDeNascimento = table.Column<string>(type: "text", nullable: true),
+                    DataDeNascimento = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     CPF = table.Column<string>(type: "text", nullable: true),
                     Email = table.Column<string>(type: "text", nullable: true)
                 },
