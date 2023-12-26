@@ -6,9 +6,11 @@ using apiEdubank.Context;
 using apiEdubank.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace apiEdubank.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
     [ApiController]
     [Route("[controller]")]
     public class UsuarioController : ControllerBase
