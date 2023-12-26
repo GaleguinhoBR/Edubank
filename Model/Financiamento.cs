@@ -12,7 +12,7 @@ namespace apiEdubank.Model
         public int Id_financiamento{get; set;}
         public int Id_usuario{get; set;}
         public double Valor{get; set;}
-        public string? Data{get; set;}
+        public DateTime Data{get; set;}
         public string? Descrição{get; set;}
     }
 }
