@@ -38,9 +38,9 @@ namespace apiEdubank.Controllers
             
             return financiamento;
         }
-        [HttpGet ("(id:int)", Name="GetFinanciamentobyUserID")]
-        public ActionResult<Financiamento> GetbyUserID(int user_id){
-            var financiamento = _context.Financiamentos.FirstOrDefault(p => p.Id_usuario == user_id);
+        [HttpGet ("(usuario/id:int)", Name="GetFinanciamentoUsuario")]
+        public ActionResult<Financiamento> GetbyUser(int id){
+            var financiamento = _context.Financiamentos.FirstOrDefault(p => p.Id_usuario == id);
             if(financiamento is null)
                 return NotFound("Financiamento não encontrado.");
             
