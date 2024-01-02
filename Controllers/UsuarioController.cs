@@ -6,13 +6,11 @@ using apiEdubank.Context;
 using apiEdubank.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Authorization;
 
 namespace apiEdubank.Controllers
 {
-    using Microsoft.AspNetCore.Authorization;
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/{v:apiversion}/usuario")]
     public class UsuarioController : ControllerBase
     {
         private readonly ILogger<UsuarioController>_logger;

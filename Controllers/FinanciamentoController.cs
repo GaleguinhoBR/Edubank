@@ -12,7 +12,7 @@ namespace apiEdubank.Controllers
 {
     [Authorize(AuthenticationSchemes = "Bearer")]
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/{v:apiversion}/financiamento")]
     public class FinanciamentoController : ControllerBase
     {
         private readonly ILogger<FinanciamentoController> _logger;

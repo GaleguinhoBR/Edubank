@@ -14,7 +14,7 @@ using System.IdentityModel.Tokens.Jwt;
 namespace Edubank.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class AutorizaController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;

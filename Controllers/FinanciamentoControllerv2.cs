@@ -14,7 +14,7 @@ namespace Edubank.Controllers
     [Authorize(AuthenticationSchemes = "Bearer")]
     [ApiController]
     [ApiVersion("2.0")]
-    [Route("api/[controller]")]
+    [Route("api/{v:apiversion}/financiamento")]
     public class FinanciamentoControllerv2 : ControllerBase
     {
         private readonly ILogger<FinanciamentoController> _logger;
@@ -42,7 +42,7 @@ namespace Edubank.Controllers
             
             return financiamentos;
         }
-        [HttpGet("{id:int}", Name ="GetFinanciamento")]
+        [HttpGet("{id:int}", Name ="GetFinanciamentov2")]
         public ActionResult<Financiamento> Get(int id)
         {
             var financiamento = _context.Financiamentos.FirstOrDefault(p => p.Id_financiamento == id);
